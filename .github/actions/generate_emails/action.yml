@@ -1,0 +1,14 @@
+name: Generate email templates
+description: Generates email templates based on templates
+runs:
+  using: composite
+  steps:
+    - name: Setup environment
+      uses: ./.github/actions/setup
+    - name: Generate email templates
+      run: pnpm turbo generate-emails
+      shell: bash
+    - name: Check for changes
+      shell: bash
+      run: |
+        git diff --exit-code

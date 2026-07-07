@@ -1,0 +1,62 @@
+name: Main
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  LOG_LEVEL: ${{ vars.LOG_LEVEL }}
+  WORKING_DIR: ./
+  ENV: local
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/rocketmakers/ci-node-docker-az:7.0.2
+      env:
+        # We need to tell asdf where to install packages when using docker
+        ASDF_DATA_DIR: /root/.asdf
+        # This is required due to limitation of docker in docker https://stackoverflow.com/a/69691610
+        ROOT_DIR: ${{ github.workspace }}
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v6
+      # Workaround for not registering as a git repository - https://github.com/actions/checkout/issues/1169
+      - name: Update Git config
+        run: git config --global --add safe.directory "$PWD"
+      - name: Validate files
+        uses: ./.github/actions/lint_and_format
+      - name: Build scripts
+        uses: ./.github/actions/build_scripts
+      - name: Generate email templates
+        uses: ./.github/actions/generate_emails
+  
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - name: resend
+    container:
+      image: ghcr.io/rocketmakers/ci-node-docker-az:7.0.2
+      env:
+        # We need to tell asdf where to install packages when using docker
+        ASDF_DATA_DIR: /root/.asdf
+        # This is required due to limitation of docker in docker https://stackoverflow.com/a/69691610
+        ROOT_DIR: ${{ github.workspace }}
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v6
+      - name: Test
+        uses: ./.github/actions/test_templates
+        with:
+          serviceName: ${{ matrix.name }}

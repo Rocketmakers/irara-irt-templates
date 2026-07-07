@@ -1,0 +1,40 @@
+name: Renovate
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6,12,16 * * 1-5'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# Required to obtain artifact from another workflow.
+# Default can be found at https://docs.github.com/en/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token
+permissions:
+  actions: read
+  contents: read
+  packages: read
+
+env:
+  LOG_LEVEL: ${{ vars.LOG_LEVEL }}
+
+jobs:
+  update:
+    name: Renovate update
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v46.1.9
+        with:
+          configurationFile: renovate.json
+          # https://github.com/renovatebot/github-action?tab=readme-ov-file#token
+          token: ${{ secrets.RENOVATE_TOKEN }}
+        env:
+          RENOVATE_REPOSITORIES: ${{ github.repository }}
+          # Username and author must match the owner of the renovate token
+          RENOVATE_USERNAME: 'rocketmakersdev'
+          RENOVATE_GIT_AUTHOR: 'rocketmakersdev <developer@rocketmakers.com>'
+          RENOVATE_ONBOARDING: 'false'

@@ -1,0 +1,10 @@
+name: Build scripts
+description: Builds all scripts
+runs:
+  using: composite
+  steps:
+    - name: Setup environment
+      uses: ./.github/actions/setup
+    - name: Build scripts
+      run: pnpm turbo run build --filter=@repo/typescript-scripts*
+      shell: bash

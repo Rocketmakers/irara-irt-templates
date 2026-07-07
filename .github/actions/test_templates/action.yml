@@ -1,0 +1,14 @@
+name: Test templates
+description: Runs tests for templates and ensures everything is valid
+inputs:
+  serviceName:
+    description: 'The name of the service to test'
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Setup environment
+      uses: ./.github/actions/setup
+    - name: Run template tests
+      run: pnpm test-templates --serviceNames=${{ inputs.serviceName }}
+      shell: bash

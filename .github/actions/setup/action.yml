@@ -1,0 +1,22 @@
+name: Setup
+description: Any setup required for the job to run
+runs:
+  using: composite
+  steps:
+    - name: Change working directory
+      run: cd $WORKING_DIR
+      shell: bash
+    # Don't use action as we want to be selective in what we install
+    # asdf install >= 0.16 returns non-zero error code if already installed
+    - name: Install nodejs
+      run: asdf install nodejs || true
+      shell: bash
+    - name: Install pnpm
+      run: asdf install pnpm || true
+      shell: bash
+    - name: Install dependencies
+      run: pnpm install
+      shell: bash
+    - name: Install SOPS
+      run: pnpm --filter="@repo/secrets" setup-dependencies
+      shell: bash

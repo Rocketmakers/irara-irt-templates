@@ -1,0 +1,11 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "build": {},
+    "compile-layouts": {
+      "cache": false,
+      "dependsOn": ["build", "@repo/typescript-scripts-emails#generate-emails"]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/@rocketmakers/orbit-template-http-repository/lib/serviceJsonSchema.json",
+  "partials": {},
+  "layouts": {
+    "magicLinkNewUser": {
+      "path": "layouts/magicLink",
+      "templates": ["html", "txt"]
+    }
+  }
+}

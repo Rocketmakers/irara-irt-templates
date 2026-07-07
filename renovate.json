@@ -1,0 +1,47 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "platformAutomerge": true,
+  "minimumReleaseAge": "3 days",
+  "prCreation": "not-pending",
+  "internalChecksFilter": "strict",
+  "enabledManagers": ["npm", "asdf", "github-actions"],
+  "prHourlyLimit": 5,
+  "labels": ["renovate"],
+  "packageRules": [
+    {"enabled": false, "matchUpdateTypes": ["major", "minor", "patch"]},
+    {
+      "enabled": true,
+      "groupName": "Major packages",
+      "description": "Update all npm based packages",
+      "addLabels": ["web", "major-dependency"],
+      "matchManagers": ["npm"],
+      "automerge": false,
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "enabled": true,
+      "groupName": "Non-major packages",
+      "description": "Update all npm based packages",
+      "addLabels": ["web", "non-major-dependency"],
+      "matchManagers": ["npm"],
+      "automerge": false,
+      "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "enabled": true,
+      "description": "Update github action dependencies",
+      "addLabels": ["github", "major-dependency"],
+      "matchManagers": ["github-actions"],
+      "automerge": false,
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "enabled": true,
+      "description": "Update github action dependencies",
+      "addLabels": ["github", "non-major-dependency"],
+      "matchManagers": ["github-actions"],
+      "automerge": true,
+      "matchUpdateTypes": ["minor", "patch"]
+    },
+  ]
+}
