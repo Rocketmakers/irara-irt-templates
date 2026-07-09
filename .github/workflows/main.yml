@@ -28,7 +28,7 @@ jobs:
         ROOT_DIR: ${{ github.workspace }}
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       # Workaround for not registering as a git repository - https://github.com/actions/checkout/issues/1169
       - name: Update Git config
         run: git config --global --add safe.directory "$PWD"
@@ -55,7 +55,7 @@ jobs:
         ROOT_DIR: ${{ github.workspace }}
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Test
         uses: ./.github/actions/test_templates
         with:
