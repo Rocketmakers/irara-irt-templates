@@ -5,6 +5,10 @@
     "magicLink": {
       "path": "layouts/magicLink",
       "templates": ["html", "txt"]
+    },
+    "unregisteredUser": {
+      "path": "layouts/unregisteredUser",
+      "templates": ["html", "txt"]
     }
   }
 }

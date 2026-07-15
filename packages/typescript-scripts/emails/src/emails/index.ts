@@ -36,4 +36,11 @@ export async function generateEmails() {
     },
     footerText: "You have 24 hours to click the link before it expires",
   });
+
+  await generate("unregisteredUser", {
+    title: "Unknown account",
+    copy: [
+      "It looks like you tried to access our service without an account. Please contact support if you require an account.",
+    ],
+  });
 }
