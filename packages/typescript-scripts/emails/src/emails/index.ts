@@ -25,10 +25,22 @@ async function generate(name: string, props: IBaseEmailProps) {
 }
 
 export async function generateEmails() {
-  await generate("magicLink", {
+  await generate("login", {
     title: "Welcome",
     copy: [
-      "To complete the setup of your account we first need you to verify your email address.",
+      "Please click the link below to complete your login. If you did not request this link, please ignore this email.",
+    ],
+    actionLink: {
+      href: "{{returnUrl}}",
+      text: "Complete login",
+    },
+    footerText: "You have 24 hours to click the link before it expires",
+  });
+
+  await generate("inviteUser", {
+    title: "Welcome",
+    copy: [
+      "You have been invited to join the IRARA IRT system. Please click the link below to complete the setup of your account.",
     ],
     actionLink: {
       href: "{{returnUrl}}",

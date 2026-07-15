@@ -2,8 +2,12 @@
   "$schema": "./node_modules/@rocketmakers/orbit-template-http-repository/lib/serviceJsonSchema.json",
   "partials": {},
   "layouts": {
-    "magicLink": {
-      "path": "layouts/magicLink",
+    "login": {
+      "path": "layouts/login",
+      "templates": ["html", "txt"]
+    },
+    "inviteUser": {
+      "path": "layouts/inviteUser",
       "templates": ["html", "txt"]
     },
     "unregisteredUser": {

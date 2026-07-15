@@ -1,1 +1,0 @@
-{"description":"Specify required object","examples":[{"forename":"David","returnUrl":"https://www.rocketmakers.com"}],"type":"object","properties":{"forename":{"type":"string"},"returnUrl":{"type":"string"}},"required":["forename","returnUrl"],"$schema":"http://json-schema.org/draft-07/schema#"}
