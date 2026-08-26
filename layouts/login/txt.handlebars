@@ -7,9 +7,17 @@ Complete login {{returnUrl}}
 Or copy this URL into your browser's address bar:
 
 {{returnUrl}}
+{{#if otp}}
+Or enter this code in the app:
 
-You have 24 hours to click the link before it expires
-
+{{otp}}
+{{#if isFieldApp}}
+Installed the app on an iPhone? Use the code. iOS opens the link in Safari, which cannot pass the session to the installed app.
+{{/if}}
+Only ever enter this code in the Irara app. Nobody from Rocketmakers or IRARA will ask you for it.
+{{/if}}{{#if expiresIn}}
+This expires in {{expiresIn}} and can only be used once.
+{{/if}}
 Best regards,
 
 Rocketmakers
