@@ -8,15 +8,11 @@ Or copy this URL into your browser's address bar:
 
 {{returnUrl}}
 {{#if otp}}
-Or enter this code in the app:
+Or enter this code instead:
 
 {{otp}}
-{{#if isFieldApp}}
-Installed the app on an iPhone? Use the code. iOS opens the link in Safari, which cannot pass the session to the installed app.
-{{/if}}
-Only ever enter this code in the Irara app. Nobody from Rocketmakers or IRARA will ask you for it.
-{{/if}}{{#if expiresIn}}
-This expires in {{expiresIn}} and can only be used once.
+
+{{#if expiresIn}}Expires in {{expiresIn}}. {{/if}}Never share it with anyone.
 {{/if}}
 Best regards,
 
