@@ -21,6 +21,9 @@ import {
   logo,
   logoContainer,
   main,
+  otpCode,
+  otpIntro,
+  otpNote,
   paragraph,
   signOff,
   signOffContainer,
@@ -31,6 +34,15 @@ export interface IBaseEmailProps {
   copy: string[];
   footerText?: string;
   actionLink?: { href: string; text: string };
+  /**
+   * A one-time code shown as an alternative to the action link.
+   *
+   * `code` and `note` are handlebars, not copy, so the API fills them per send. The whole block is
+   * emitted inside `{{#if otp}}`, so a payload without an `otp` renders nothing here - that is what
+   * lets this template and the API ship in either order, since every environment reads this
+   * repository's `main` at runtime.
+   */
+  otp?: { intro: string; code: string; note: string };
 }
 
 export const BaseEmail = ({
@@ -38,6 +50,7 @@ export const BaseEmail = ({
   actionLink,
   copy,
   footerText,
+  otp,
 }: IBaseEmailProps) => (
   <Html style={main}>
     <Head />
@@ -78,6 +91,18 @@ export const BaseEmail = ({
                 <Link style={hyperlink} href={actionLink?.href}>
                   {actionLink?.href}
                 </Link>
+              </>
+            )}
+            {otp && (
+              <>
+                {"{{#if otp}}"}
+                <Text style={otpIntro}>{otp.intro}</Text>
+                <Text style={otpCode}>{otp.code}</Text>
+                <Text
+                  style={otpNote}
+                  dangerouslySetInnerHTML={{ __html: otp.note }}
+                />
+                {"{{/if}}"}
               </>
             )}
             {footerText && <Text style={paragraph}>{footerText}</Text>}

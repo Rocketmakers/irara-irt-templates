@@ -25,6 +25,8 @@ async function generate(name: string, props: IBaseEmailProps) {
 }
 
 export async function generateEmails() {
+  // No `footerText`: the code block carries the expiry wording, quoted by the API from Supabase's
+  // real `otp_expiry` rather than the hardcoded 24 hours, which described the link only.
   await generate("login", {
     title: "Welcome",
     copy: [
@@ -34,7 +36,11 @@ export async function generateEmails() {
       href: "{{returnUrl}}",
       text: "Complete login",
     },
-    footerText: "You have 24 hours to click the link before it expires",
+    otp: {
+      intro: "Or enter this code instead:",
+      code: "{{otp}}",
+      note: "{{#if expiresIn}}Expires in {{expiresIn}}. {{/if}}Never share it with anyone.",
+    },
   });
 
   await generate("inviteUser", {

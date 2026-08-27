@@ -114,12 +114,21 @@
                                 style="color:#707071;text-decoration-line:none;text-decoration:underline"
                                 target="_blank"
                                 >{{returnUrl}}</a
-                              >
+                              >{{#if otp}}
+                              <p
+                                style="font-size:16px;line-height:24px;margin-top:24px;margin-bottom:8px">
+                                Or enter this code instead:
+                              </p>
+                              <p
+                                style="font-size:32px;line-height:40px;font-weight:600;letter-spacing:6px;text-align:center;color:#FFFFFF;margin-top:0px;margin-bottom:16px">
+                                {{otp}}
+                              </p>
                               <p
                                 style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px">
-                                You have 24 hours to click the link before it
-                                expires
+                                {{#if expiresIn}}Expires in {{expiresIn}}.
+                                {{/if}}Never share it with anyone.
                               </p>
+                              {{/if}}
                               <table
                                 align="center"
                                 width="100%"

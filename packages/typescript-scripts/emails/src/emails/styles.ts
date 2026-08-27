@@ -94,6 +94,31 @@ export const socialMediaItem: CSSProperties = {
   marginRight: "5px",
 };
 
+export const otpIntro: CSSProperties = {
+  fontSize: "16px",
+  lineHeight: "24px",
+  marginTop: "24px",
+  marginBottom: "8px",
+};
+
+export const otpCode: CSSProperties = {
+  fontSize: "32px",
+  lineHeight: "40px",
+  fontWeight: "600",
+  letterSpacing: "6px",
+  textAlign: "center",
+  color: "#FFFFFF",
+  marginTop: "0px",
+  marginBottom: "16px",
+};
+
+export const otpNote: CSSProperties = {
+  fontSize: "16px",
+  lineHeight: "24px",
+  marginTop: "16px",
+  marginBottom: "16px",
+};
+
 export const hyperlink: CSSProperties = {
   color: "#707071",
   textDecoration: "underline",
