@@ -114,8 +114,8 @@
                                 style="color:#707071;text-decoration-line:none;text-decoration:underline"
                                 target="_blank"
                                 >{{returnUrl}}</a
-                              >
-{{#if otp}}                              <p
+                              >{{#if otp}}
+                              <p
                                 style="font-size:16px;line-height:24px;margin-top:24px;margin-bottom:8px">
                                 Or enter this code instead:
                               </p>
@@ -125,10 +125,11 @@
                               </p>
                               <p
                                 style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px">
-                                {{#if expiresIn}}Expires in {{expiresIn}}. {{/if}}Never share it
-                                with anyone.
+                                {{#if expiresIn}}Expires in {{expiresIn}}.
+                                {{/if}}Never share it with anyone.
                               </p>
-{{/if}}                              <table
+                              {{/if}}
+                              <table
                                 align="center"
                                 width="100%"
                                 border="0"

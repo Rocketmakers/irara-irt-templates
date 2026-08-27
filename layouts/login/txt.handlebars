@@ -6,14 +6,16 @@ Complete login {{returnUrl}}
 
 Or copy this URL into your browser's address bar:
 
-{{returnUrl}}
-{{#if otp}}
+{{returnUrl}}{{#if otp}}
+
 Or enter this code instead:
 
 {{otp}}
 
 {{#if expiresIn}}Expires in {{expiresIn}}. {{/if}}Never share it with anyone.
+
 {{/if}}
+
 Best regards,
 
 Rocketmakers
