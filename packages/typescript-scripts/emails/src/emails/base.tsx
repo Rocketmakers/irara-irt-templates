@@ -98,10 +98,7 @@ export const BaseEmail = ({
                 {"{{#if otp}}"}
                 <Text style={otpIntro}>{otp.intro}</Text>
                 <Text style={otpCode}>{otp.code}</Text>
-                <Text
-                  style={otpNote}
-                  dangerouslySetInnerHTML={{ __html: otp.note }}
-                />
+                <Text style={otpNote}>{otp.note}</Text>
                 {"{{/if}}"}
               </>
             )}
