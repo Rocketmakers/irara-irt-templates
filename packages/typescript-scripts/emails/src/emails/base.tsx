@@ -21,6 +21,9 @@ import {
   logo,
   logoContainer,
   main,
+  otpCode,
+  otpIntro,
+  otpNote,
   paragraph,
   signOff,
   signOffContainer,
@@ -31,6 +34,8 @@ export interface IBaseEmailProps {
   copy: string[];
   footerText?: string;
   actionLink?: { href: string; text: string };
+  /** One-time code, filled per send. Don't combine with `actionLink`: an email carries one or the other. */
+  otp?: { intro: string; code: string; note: string };
 }
 
 export const BaseEmail = ({
@@ -38,6 +43,7 @@ export const BaseEmail = ({
   actionLink,
   copy,
   footerText,
+  otp,
 }: IBaseEmailProps) => (
   <Html style={main}>
     <Head />
@@ -78,6 +84,13 @@ export const BaseEmail = ({
                 <Link style={hyperlink} href={actionLink?.href}>
                   {actionLink?.href}
                 </Link>
+              </>
+            )}
+            {otp && (
+              <>
+                <Text style={otpIntro}>{otp.intro}</Text>
+                <Text style={otpCode}>{otp.code}</Text>
+                <Text style={otpNote}>{otp.note}</Text>
               </>
             )}
             {footerText && <Text style={paragraph}>{footerText}</Text>}

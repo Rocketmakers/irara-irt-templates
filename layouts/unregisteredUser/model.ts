@@ -3,10 +3,6 @@
  *
  * @examples require(".").sampleData
  */
-export interface IModel {
-}
+export interface IModel {}
 
-export const sampleData: IModel[] = [
-  {
-  },
-];
+export const sampleData: IModel[] = [{}];

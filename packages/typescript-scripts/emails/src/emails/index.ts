@@ -25,6 +25,9 @@ async function generate(name: string, props: IBaseEmailProps) {
 }
 
 export async function generateEmails() {
+  // Two login layouts, because a login email carries a link or a code and never both: `login` is the
+  // web app's, `loginCode` is the PWA's. The API picks between them from the `client` on the login
+  // request, so neither template needs to know which asked.
   await generate("login", {
     title: "Welcome",
     copy: [
@@ -34,7 +37,20 @@ export async function generateEmails() {
       href: "{{returnUrl}}",
       text: "Complete login",
     },
-    footerText: "You have 24 hours to click the link before it expires",
+  });
+
+  // No `footerText`: the code block carries the expiry wording, quoted by the API from Supabase's
+  // real `otp_expiry` rather than the hardcoded 24 hours, which described the link only.
+  await generate("loginCode", {
+    title: "Welcome",
+    copy: [
+      "Enter the code below in the app to complete your login. If you did not request it, please ignore this email.",
+    ],
+    otp: {
+      intro: "Your sign-in code:",
+      code: "{{otp}}",
+      note: "Expires in {{expiresIn}}. Never share it with anyone.",
+    },
   });
 
   await generate("inviteUser", {
