@@ -34,14 +34,7 @@ export interface IBaseEmailProps {
   copy: string[];
   footerText?: string;
   actionLink?: { href: string; text: string };
-  /**
-   * A one-time code shown as an alternative to the action link.
-   *
-   * `code` and `note` are handlebars, not copy, so the API fills them per send. The whole block is
-   * emitted inside `{{#if otp}}`, so a payload without an `otp` renders nothing here - that is what
-   * lets this template and the API ship in either order, since every environment reads this
-   * repository's `main` at runtime.
-   */
+  /** One-time code, filled per send. Don't combine with `actionLink`: an email carries one or the other. */
   otp?: { intro: string; code: string; note: string };
 }
 
@@ -95,11 +88,9 @@ export const BaseEmail = ({
             )}
             {otp && (
               <>
-                {"{{#if otp}}"}
                 <Text style={otpIntro}>{otp.intro}</Text>
                 <Text style={otpCode}>{otp.code}</Text>
                 <Text style={otpNote}>{otp.note}</Text>
-                {"{{/if}}"}
               </>
             )}
             {footerText && <Text style={paragraph}>{footerText}</Text>}

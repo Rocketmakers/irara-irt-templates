@@ -6,6 +6,10 @@
       "path": "layouts/login",
       "templates": ["html", "txt"]
     },
+    "loginCode": {
+      "path": "layouts/loginCode",
+      "templates": ["html", "txt"]
+    },
     "inviteUser": {
       "path": "layouts/inviteUser",
       "templates": ["html", "txt"]
