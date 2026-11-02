@@ -17,6 +17,10 @@
     "unregisteredUser": {
       "path": "layouts/unregisteredUser",
       "templates": ["html", "txt"]
+    },
+    "surveyInvitation": {
+      "path": "layouts/surveyInvitation",
+      "templates": ["html", "txt"]
     }
   }
 }
