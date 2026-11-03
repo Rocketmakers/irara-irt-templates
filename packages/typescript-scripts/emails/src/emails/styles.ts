@@ -1,125 +1,142 @@
 import { CSSProperties } from "react";
 
-const primaryColour = "#078c28";
-const textColor = "#ADABAA";
-const backgroundColour = "#1C1B1B";
-const headerColor = "#313030";
+const primaryColour = "#275dbf";
+const headingColour = "#181f25";
+const textColour = "#384757";
+const mutedColour = "#5b6878";
+const borderColour = "#eaedf2";
+const pageColour = "#f5f7f9";
+const fontFamily =
+  "Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
 
 export const main: CSSProperties = {
   margin: "0px",
-  backgroundColor: backgroundColour,
-  color: textColor,
-  textAlign: "center",
+  backgroundColor: "#FFFFFF",
+  color: textColour,
   fontSize: "16px",
-  fontFamily: "Inter,sans-serif",
+  fontFamily,
 };
 
-export const h1: CSSProperties = {
-  fontSize: "35px",
-  fontWeight: "600",
-  textAlign: "center",
-  color: primaryColour,
+// The bands run the full width of the page; what sits in them is capped at 600px and centred, so a wide
+// client shows a column of text rather than stretching it.
+export const header: CSSProperties = {
+  borderTop: `6px solid ${primaryColour}`,
+  borderBottom: `1px solid ${borderColour}`,
 };
 
-export const logoContainer: CSSProperties = {
-  backgroundColor: headerColor,
+export const column: CSSProperties = {
+  maxWidth: "600px",
   margin: "0 auto",
-  padding: "20px 0 20px",
+};
+
+export const headerInner: CSSProperties = {
+  padding: "28px 40px",
 };
 
 export const logo: CSSProperties = {
-  margin: "0 auto",
+  display: "block",
 };
 
-export const container: CSSProperties = {
-  backgroundColor: backgroundColour,
-  margin: "0px",
-  padding: "10px 0 10px",
+export const content: CSSProperties = {
+  padding: "40px 40px 32px",
+  textAlign: "left",
 };
 
-export const box: CSSProperties = {
-  padding: "0 20px",
+export const eyebrow: CSSProperties = {
+  margin: "0 0 12px",
+  fontSize: "14px",
+  lineHeight: "20px",
+  fontWeight: "600",
+  letterSpacing: "0.5px",
+  textTransform: "uppercase",
+  color: primaryColour,
 };
 
-export const hr: CSSProperties = {
-  borderColor: "#e6ebf1",
-  margin: "20px 0",
+export const h1: CSSProperties = {
+  margin: "0 0 24px",
+  fontSize: "30px",
+  lineHeight: "38px",
+  fontWeight: "600",
+  color: headingColour,
 };
 
 export const paragraph: CSSProperties = {
+  margin: "0 0 16px",
   fontSize: "16px",
-  lineHeight: "24px",
+  lineHeight: "26px",
+  color: textColour,
 };
 
 export const button: CSSProperties = {
-  boxSizing: "border-box",
+  display: "inline-block",
+  margin: "8px 0 24px",
+  padding: "16px 36px",
   backgroundColor: primaryColour,
-  borderRadius: "25px",
+  borderRadius: "999px",
   color: "#FFFFFF",
+  fontSize: "16px",
+  lineHeight: "20px",
+  fontWeight: "600",
   textDecoration: "none",
-  display: "block",
-  maxWidth: "300px",
-  padding: "10px",
-  margin: "20px auto",
 };
 
-export const signOffContainer: CSSProperties = {
-  paddingBottom: "40px",
-  fontSize: "12px",
-  lineHeight: "16px",
-  textAlign: "center",
+export const note: CSSProperties = {
+  margin: "0 0 16px",
+  fontSize: "14px",
+  lineHeight: "22px",
+  color: mutedColour,
+};
+
+export const fallbackIntro: CSSProperties = {
+  ...note,
+  margin: "0 0 4px",
+};
+
+export const hyperlink: CSSProperties = {
+  fontSize: "14px",
+  lineHeight: "22px",
+  color: primaryColour,
+  textDecoration: "none",
+  wordBreak: "break-all",
+};
+
+export const hr: CSSProperties = {
+  margin: "28px 0",
+  border: "none",
+  borderTop: `1px solid ${borderColour}`,
+};
+
+export const supportHeading: CSSProperties = {
+  margin: "0 0 8px",
+  fontSize: "16px",
+  lineHeight: "24px",
+  fontWeight: "600",
+  color: headingColour,
+};
+
+export const closing: CSSProperties = {
+  ...paragraph,
+  margin: "24px 0 16px",
 };
 
 export const signOff: CSSProperties = {
   margin: "0px",
-  lineHeight: "20px",
-};
-
-export const footer: CSSProperties = {
-  padding: "20px 0 20px",
-  height: "100%",
-  fontSize: "12px",
-};
-
-export const socialMedia: CSSProperties = {
-  margin: "0 auto",
-  marginBottom: "10px",
-  width: "100px",
-};
-
-export const socialMediaItem: CSSProperties = {
-  backgroundColor: "#FFFFFF",
-  borderRadius: "50%",
-  padding: "5px",
-  marginRight: "5px",
-};
-
-export const otpIntro: CSSProperties = {
   fontSize: "16px",
   lineHeight: "24px",
-  marginTop: "24px",
-  marginBottom: "8px",
+  fontWeight: "600",
+  color: headingColour,
 };
 
 export const otpCode: CSSProperties = {
+  display: "inline-block",
+  margin: "8px 0 24px",
+  padding: "12px 24px",
+  backgroundColor: pageColour,
+  border: `1px solid ${borderColour}`,
+  borderRadius: "8px",
   fontSize: "32px",
   lineHeight: "40px",
   fontWeight: "600",
   letterSpacing: "6px",
-  textAlign: "center",
-  color: "#FFFFFF",
-  marginTop: "0px",
-  marginBottom: "16px",
-};
-
-export const otpNote: CSSProperties = {
-  fontSize: "16px",
-  lineHeight: "24px",
-  marginTop: "16px",
-  marginBottom: "16px",
-};
-
-export const hyperlink: CSSProperties = {
-  color: "#707071",
-  textDecoration: "underline",
+  color: headingColour,
 };
