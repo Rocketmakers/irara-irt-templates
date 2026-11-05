@@ -1,0 +1,1 @@
+{"description":"Specify required object","examples":[{"returneeName":"Amara Okafor","countryName":"Germany"}],"type":"object","properties":{"returneeName":{"type":"string"},"countryName":{"type":"string"}},"required":["countryName","returneeName"],"$schema":"http://json-schema.org/draft-07/schema#"}

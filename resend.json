@@ -21,6 +21,10 @@
     "surveyInvitation": {
       "path": "layouts/surveyInvitation",
       "templates": ["html", "txt"]
+    },
+    "signpostingList": {
+      "path": "layouts/signpostingList",
+      "templates": ["html", "txt"]
     }
   }
 }
