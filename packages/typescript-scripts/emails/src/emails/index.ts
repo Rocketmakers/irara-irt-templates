@@ -99,4 +99,15 @@ export async function generateEmails() {
     },
     closing: "Thank you for considering sharing your experience.",
   });
+
+  // Sent with the case's signposting list attached as a PDF, to the case's lead returnee. The subject
+  // is set by the sender.
+  await generate("signpostingList", {
+    title: "Your signposting services",
+    greeting: "Hello {{returneeName}},",
+    copy: [
+      "Your caseworker has put together a list of support services in {{countryName}} that may help you. You'll find it attached to this email as a PDF.",
+      "If you have any questions about these services, please contact your caseworker.",
+    ],
+  });
 }
