@@ -13,6 +13,7 @@ export const sampleData: IModel[] = [
   {
     forename: "Amara",
     surveyName: "Three month check-in",
-    surveyUrl: "https://www.rocketmakers.com/survey/00000000-0000-0000-0000-000000000000?token=sample-token",
+    surveyUrl:
+      "https://www.rocketmakers.com/survey/00000000-0000-0000-0000-000000000000?token=sample-token",
   },
 ];
