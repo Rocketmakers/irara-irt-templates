@@ -19,7 +19,7 @@
     }
   },
   "dependencies": {
-    "@rocketmakers/orbit-template-http-repository": "3.1.9",
+    "@rocketmakers/orbit-template-http-repository": "3.1.10",
     "commitizen": "4.3.2",
     "cz-customizable": "7.5.4",
     "eslint": "8.57.1",

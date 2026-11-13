@@ -10,9 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "@rocketmakers/log": "0.1.0",
-    "@rocketmakers/orbit-template-http-repository": "3.1.9",
-    "@rocketmakers/shell": "0.2.5",
-    "@rocketmakers/shell-executor": "0.2.5",
+    "@rocketmakers/orbit-template-http-repository": "3.1.10",
+    "@rocketmakers/shell": "0.2.6",
+    "@rocketmakers/shell-executor": "0.2.6",
     "fs-extra": "11.4.1",
     "ajv": "8.20.0",
     "handlebars": "4.7.10"
