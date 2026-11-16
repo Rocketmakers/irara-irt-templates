@@ -2,7 +2,7 @@
 
 {{ INSERT HERE }}
 
-### What does this MR do?
+### What does this PR do?
 
 ### Where should the reviewer start?
 
@@ -14,7 +14,4 @@
 
 ### Best Practices
 
-- [ ] This has unit tests
-- [ ] This has integration tests
-- [ ] This has frontend tests
 - [ ] Updated documentation

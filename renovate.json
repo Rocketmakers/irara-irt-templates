@@ -14,7 +14,7 @@
       "groupName": "Major packages",
       "description": "Update all npm based packages",
       "addLabels": ["web", "major-dependency"],
-      "matchManagers": ["npm"],
+      "matchManagers": ["npm", "asdf"],
       "automerge": false,
       "matchUpdateTypes": ["major"]
     },
@@ -23,7 +23,7 @@
       "groupName": "Non-major packages",
       "description": "Update all npm based packages",
       "addLabels": ["web", "non-major-dependency"],
-      "matchManagers": ["npm"],
+      "matchManagers": ["npm", "asdf"],
       "automerge": false,
       "matchUpdateTypes": ["minor", "patch"]
     },
